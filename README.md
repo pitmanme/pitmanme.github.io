@@ -1,5 +1,4 @@
 # pitmanme.github.io
-repository for M. E. Pitman of UCI formerly UMD/NIH
 
 [system_builder package](https://github.com/pitmanme/system_builder)
 
