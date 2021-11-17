@@ -1,8 +1,7 @@
 # pitmanme.github.io
 repository for M. E. Pitman of UCI formerly UMD/NIH
 
-ligand and complex system builder package: 
-https://github.com/pitmanme/system_builder
+[system_builder package](https://github.com/pitmanme/system_builder)
 
 code for Young's modulus calculation: 
       /youngs_modulus
