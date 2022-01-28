@@ -11,7 +11,7 @@ DCA Tutorial in Development - Version 1.0
 
 1.3- Chimera (Installer attached) Used to visualize the Direct Couplings.
 
-1.4- mfDCA scripts (attached or can be obtained from FAF)
+1.4- mfDCA scripts (attached or can be obtained from http://dca.ucsd.edu/DCA/DCA.html)
 
 
 ———————————————————————————————————
@@ -26,7 +26,7 @@ All files used and generated are attached as well as examples from Faruck Morcos
 
 2.2- Still in PDB, go to the Annotations tab and scroll to “Protein Family Annotation” -> obtain Pfam Accession code (PF00240 used for Ubiquitin)->
 
-Go to and in “JUMP TO” enter Accession code -> Go to Alignments tab on left -> Under Format an alignment select (Full or other of choice, FASTA format, Tree, Inserts lower case, Gaps as “.” or “-“ (mixed))
+Go to http://pfam.xfam.org and in “JUMP TO” enter Accession code -> Go to Alignments tab on left -> Under Format an alignment select (Full or other of choice, FASTA format, Tree, Inserts lower case, Gaps as “.” or “-“ (mixed))
 
 This will provide you with the Multiple Sequence Alignment (MSA) of the protein’s family. 
 /*do not close webpage*/
@@ -47,7 +47,7 @@ This will provide you with the Multiple Sequence Alignment (MSA) of the protein�
 
 3.2- Sort the output file by the last column with a sequence distance greater than 4 (this may need to be changed)
 
-	awk ‘$2-$1>4’ 5PTI_full.DI|sort -g -k 4 -r > 5PTI_full_ranked.DI
+	awk ‘$2-$1>4’ ubiquitin.DI|sort -g -k 4 -r > Ubiquitin_ranked.DI
 
 3.3- Create mapping of specific protein onto family. On the PDB page where the Accession code for Pfam is found, a picture of this mapping is found. First create files accessed by HMMER
 	
@@ -55,7 +55,9 @@ This will provide you with the Multiple Sequence Alignment (MSA) of the protein�
 
 Then scan to create mapping with the FASTA file of the single protein
 
-	
+	hmmscan -o output_prefix —notextw HMMfile protein_FASTA_file
+	hmmscan -o 1AAR_A_scan -notextw ubiquitin.hmm.txt 1AAR_A.fasta.txt
+
 /* More information on the output file in Note 4.2 */
 
 3.4- Combine output file with ranked DI pairs (see pg 64 of Faruck Morcos et al). This may be another function of hmmscan (unsure about this step)
@@ -90,8 +92,17 @@ Edit attributes/add labels as desired.
 4. NOTES
 ——————————
 
+4.1- 
 
-4.1-
+Example of FASTA format:
+
+>gi|129295|sp|P01013|OVAX_CHICK GENE X PROTEIN (OVALBUMIN-RELATED)
+QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
+
+/* There should be a heading but some variation is acceptable (/ vs |) */
+
+
+4.2-
 Interpreting hmmscan outputs 
 More info on:
 
@@ -118,12 +129,10 @@ Alignments for each domain:
 Target-> 1AAR:A|PDBID|CHAIN|SEQUENCE  6 KTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLR 74
                                       8******************************************************************86 PP
 
-4.2- For more information refer to “Direct Coupling Analysis for Protein Contact Prediction” Ch. 5, Faruck Morcos et al. (2014)
+4.3- For more information refer to “Direct Coupling Analysis for Protein Contact Prediction” Ch. 5, Faruck Morcos et al. (2014)
 
 
 Okay, thanks for reading! ┏((＝￣(ｴ)￣=))┛
-
-
 
 
 
