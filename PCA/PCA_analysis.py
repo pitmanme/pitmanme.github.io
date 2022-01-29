@@ -21,7 +21,7 @@ get_cmap("jet")
 
 timestep = 1
 print "start loading file ...."
-pos_ca_atoms_xyz = numpy.loadtxt('kac_positions_ca_atoms.output', unpack=True)
+pos_ca_atoms_xyz = numpy.loadtxt('positions_ca_atoms.output', unpack=True)
 print "file loaded"
 length_ca_atoms_xyz = len(pos_ca_atoms_xyz)
 n_frames = len(pos_ca_atoms_xyz[0,:])
