@@ -1,4 +1,4 @@
-DCA Tutorial in Development - Version 1.0
+DCA Tutorial in Development, by M Pitman - Version 1.0
 ———————————————————————————
 
 
