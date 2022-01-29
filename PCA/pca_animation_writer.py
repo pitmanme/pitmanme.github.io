@@ -1,15 +1,9 @@
-#
-# code to analyze how tetramer angles fluctuate with PCs
-#
-# David Winogradoff
-# 01.16.2015
-#
+# D Winogradoff with edits M Pitman
+# code to output movies of PCs
 
-#import modules
+#imports
 from math import *
 from numpy import *
-#from matplotlib import *
-#from pylab import *
 import MDAnalysis
 import numpy as np
 import numpy.linalg
@@ -50,9 +44,9 @@ def angle_between_3(p1x,p1y,p1z,vx,vy,vz,p2x,p2y,p2z):
 #define or load necessary files
 pc_1_column_array = "pc" + str(pc_number) + "_ca_atoms_xyz.output"
 pc_1 = np.loadtxt(pc_1_column_array, dtype=np.complex128)
-gro_file = '/Users/mpitman/work/dt/nuc/cenpc/contr/structure_files/cenpc_contr_t0.gro'
-#xtc_file = 'wt_8mer_wow_a1_to_m13_nojump_bb_fit_600ns_to_end.xtc'
-pdb_file = 'cenpc_avg_idr_dna_renum.pdb'
+gro_file = GRO
+#xtc_file = XTC
+pdb_file = PDB
 
 #create universe, and set user-defined parameters
 u = MDAnalysis.Universe(pdb_file)
