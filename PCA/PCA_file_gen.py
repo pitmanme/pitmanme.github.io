@@ -9,33 +9,34 @@ import matplotlib.pyplot as plt
 import io
 
 
-u = MDAnalysis.Universe('/Users/mpitman/work/dt/nuc/cenpc/contr/structure_files/traj_t1_dry.gro','/Users/mpitman/work/dt/nuc/cenpc/contr/trajectories/md6/traj_md1_coarse.xtc')
+u = MDAnalysis.Universe(GRO,TRJ)
 cut = 0 # times 25(frames skipped)*2(ps/frame) = 600000 ps cut                                                     
 start = cut + 1
 timestep = 1
-n_frames = len(u.trajectory)-1						#This would make it appear that ^ is not the case
+n_frames = len(u.trajectory)-1						
 print "n_frames: ", n_frames
 
+# Currenlt ca_atoms is set up for you to enter the amount, this can be automated. 
 ca_atoms = u.selectAtoms('bynum 213:2787 and name CA') + u.selectAtoms('bynum 2947:8501 and name CA') + u.selectAtoms('bynum 8642:10058 and name CA') + u.selectAtoms('bynum 10240:11552 and name CA') + u.selectAtoms('bynum 12337:15389 and name P') + u.selectAtoms('bynum 16979:20031 and name P')
 print "len(ca_atoms): ", len(ca_atoms)
 print ca_atoms
 
 # calculate com_total
-tot_com = numpy.zeros((n_frames,3))					#return a new array of given size, n_frames rows and 3 columns, filled with 0s
-for ts in u.trajectory[start::timestep]:                                #[start::timestep]                                                                                                                                     
-    n = ts.frame - 2                                                    #why go two timesteps back?  Is this because the first was removed and then shifted to 0?                                                                                                                              
+tot_com = numpy.zeros((n_frames,3))					
+for ts in u.trajectory[start::timestep]:                                                                                                                                                                   
+    n = ts.frame - 2                                                                                                                                                                                  
     print n
     for ti in range(len(ca_atoms)):
-        tot_com[n][0] += ca_atoms[ti].pos[0]                            #first column, x values of the position.. average position looped through and sequential sum?                                                                                                                                
+        tot_com[n][0] += ca_atoms[ti].pos[0]                                                                                                                                                          
         tot_com[n][1] += ca_atoms[ti].pos[1]                                                                                                                                                            
         tot_com[n][2] += ca_atoms[ti].pos[2]                                                                                                                                                            
-    tot_com[n][0] /= numpy.float(len(ca_atoms))                         #c /= a is equivalent to c = c/a, why is float included here?                                                                                                                               
-    tot_com[n][1] /= numpy.float(len(ca_atoms))                         #this inner for loop is giving the center of mass of indiv. frames > deposits to matrix                                                                                                                                
+    tot_com[n][0] /= numpy.float(len(ca_atoms))                                                                                                                                                       
+    tot_com[n][1] /= numpy.float(len(ca_atoms))                                                                                                                                                        
     tot_com[n][2] /= numpy.float(len(ca_atoms))   
 
 
 # calculate PCA input file, CA positions with respect to COM
-f_ca_atoms = open('contr_p_ca_t.output','w')                      #a new file is being generated
+f_ca_atoms = open('p_ca_t.output','w')                      
 for ts in u.trajectory[start::timestep]:
     t = ts.frame - 2
     print "t:", t
