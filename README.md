@@ -1,4 +1,7 @@
 # pitmanme.github.io
+**Access lecture notes for 02/28/2022 here:**
+https://github.com/pitmanme/pitmanme.github.io/blob/master/phrmsci_275_lecture/phrmsci_275_lecture_proteins.pptx
+
 **In development:**
 
 The system_builder package can be accessed [here](https://github.com/pitmanme/system_builder).
