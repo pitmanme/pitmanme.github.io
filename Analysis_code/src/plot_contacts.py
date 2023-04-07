@@ -145,7 +145,7 @@ selection1, selection2, axs, iml = plot_avg_contact_maps(
 # Edit ticks and labels for plots.
 axs = graph_controls(selection1, selection2, axs)
 
-# Put colorbar below plot, this currently overlaps
+# Put colorbar above subplots
 if plt_cbar == True:
     divider = make_axes_locatable(axs[0])
     cax = divider.append_axes("top", size="7%", pad="8%")
