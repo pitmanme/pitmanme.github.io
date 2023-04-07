@@ -10,6 +10,8 @@ and plotting tools.
 
 * contact_analysis.py: functions for plot_contacts.py
 
+[Example contact analysis plot output](https://github.com/pitmanme/pitmanme.github.io/blob/master/Analysis_code/example_outputs/avg_contacts.pdf)
+
 ### Running time series metric plotting:
 
 * plot_rmsd_subplots.py: plots subplots for each type of simulation with multiple trial 
@@ -17,6 +19,10 @@ and plotting tools.
 
 * plot_avg_rmsd.py: plots average time series data over mutiple trials 
    (or from multiple simulations). 
+   
+[Example RMSD subplot plot output](https://github.com/pitmanme/pitmanme.github.io/blob/master/Analysis_code/example_outputs/peptide_rmsd_subplots.pdf)
+
+[Example average RMSD analysis plot output](https://github.com/pitmanme/pitmanme.github.io/blob/master/Analysis_code/example_outputs/Peptide_avg_rmsd.pdf)
    
 ## Requirements:
 
