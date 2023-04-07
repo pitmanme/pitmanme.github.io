@@ -1,5 +1,4 @@
-These are scripts 'academic code' and software for improved automation of some analysis 
-and plotting tools. 
+This software improves automation of some analysis and plotting tools. This directory will grow with more tools as I add features. 
 
 ## Contained in this directory:
 
